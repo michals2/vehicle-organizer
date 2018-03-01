@@ -1,4 +1,7 @@
-const vehicleList = (state = [], action) => {
+const vehicleList = (
+  state = [{ make: "test1" }, { make: "test2" }],
+  action
+) => {
   switch (action.type) {
     case "ADD_VEHICLE":
       return [

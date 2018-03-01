@@ -1,6 +1,12 @@
+// library imports
 import React from "react";
+
+// css imports
 import "./App.css";
 
-const App = () => <div>placeholder</div>;
+// component imports
+import VehicleListContainer from "../../containers/VehicleListContainer";
+
+const App = () => <VehicleListContainer />;
 
 export default App;
