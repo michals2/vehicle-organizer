@@ -2,7 +2,7 @@
 import { connect } from "react-redux";
 
 // action imports
-import { addVehicle } from "../actions";
+import { addVehicle, fetchVehicleListAndUpdateState } from "../actions";
 
 // presentational component imports
 import VehicleList from "../components/VehicleList/VehicleList";
@@ -13,9 +13,8 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
-    // onClick: () => {
-    //   dispatch(setVisibilityFilter(ownProps.filter));
-    // }
+    dispatch,
+    fetchVehicleListAndUpdateState
   };
 };
 
