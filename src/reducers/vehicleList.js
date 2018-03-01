@@ -7,9 +7,7 @@ const vehicleList = (
       return [
         ...state,
         {
-          id: action.id,
-          text: action.text,
-          completed: false
+          ...action.vehicle
         }
       ];
 
