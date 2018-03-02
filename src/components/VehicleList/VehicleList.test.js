@@ -11,7 +11,6 @@ import VehicleList from "./VehicleList";
 configure({ adapter: new Adapter() });
 
 // mock list of vehicles
-
 const mockVehicles = [
   {
     year: 2013,

@@ -2,7 +2,7 @@
 import { connect } from "react-redux";
 
 // action imports
-import { addVehicle, fetchVehicleListAndUpdateState } from "../actions";
+import { fetchVehicleListAndUpdateState } from "../actions";
 
 // presentational component imports
 import VehicleList from "../components/VehicleList/VehicleList";
