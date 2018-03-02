@@ -9,7 +9,7 @@ import { fetchVehicleListAndUpdateState, sortVehicleList } from "../actions";
 import VehicleList from "../components/VehicleList/VehicleList";
 
 const mapStateToProps = (state, ownProps) => {
-  return { state: { list: state.vehicleList } };
+  return { state: { list: state.vehicleList.vehicleList } };
 };
 
 const mapDispatchToProps = (dispatch, ownProps) => {

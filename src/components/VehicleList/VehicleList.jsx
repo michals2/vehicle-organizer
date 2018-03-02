@@ -38,7 +38,7 @@ class VehicleList extends Component {
     return (
       <div>
         <Table
-          dataSource={state.list}
+          dataSource={Object.values(state.list)}
           columns={columns}
           onRow={record => ({
             onClick: () => {

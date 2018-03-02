@@ -1,23 +1,38 @@
-const vehicleList = (state = [], action) => {
+const vehicleList = (
+  state = { vehicleList: {}, searchTermMap: {} },
+  action
+) => {
   switch (action.type) {
-    case "ADD_VEHICLE":
-      return [...state, action.vehicle];
-
     case "ADD_VEHICLES":
-      const vehicles = [
+      const vehicleList = [
         ...action.vehicleList.reduce((a, c) => {
           a.add(JSON.stringify(c));
           return a;
         }, new Set())
-      ].map((c, i) => {
+      ].reduce((a, c, i) => {
         const obj = JSON.parse(c);
-        return {
-          ...obj,
+        a[i] = {
           key: i,
-          created_at: new Date(obj.created_at)
+          ...obj,
+          created_at: new Date(obj.created_at),
+          searchTerms: [
+            obj.year,
+            obj.make.toLowerCase(),
+            obj.model.toLowerCase()
+          ]
         };
-      });
-      return [...state, ...vehicles];
+        return a;
+      }, {});
+
+      const searchTermMap = Object.entries(vehicleList).reduce((a, c) => {
+        c[1].searchTerms.forEach(t => {
+          if (!a[t]) a[t] = [];
+          a[t].push(c[0]);
+        });
+        return a;
+      }, {});
+
+      return { vehicleList, searchTermMap };
 
     case "SORT_VEHICLE_LIST":
       const { field, order } = action;
