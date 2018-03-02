@@ -23,6 +23,11 @@ const columns = [
     title: "Model",
     dataIndex: "model",
     key: "model"
+  },
+  {
+    title: "Mileage",
+    dataIndex: "mileage",
+    key: "mileage"
   }
 ];
 
@@ -34,7 +39,6 @@ class VehicleList extends Component {
 
   render() {
     const { state, actions } = this.props;
-    // console.log(this.props)
     return (
       <div>
         <Button
@@ -43,8 +47,18 @@ class VehicleList extends Component {
         >
           Sort by vehicle year (oldest to newest)
         </Button>
-        <Button type="primary">Sort by mileage (highest to lowest)</Button>
-        <Button type="primary">Sort by listing date (newest to oldest)</Button>
+        <Button
+          type="primary"
+          onClick={() => actions.sortVehicleList("mileage", "descending")}
+        >
+          Sort by mileage (highest to lowest)
+        </Button>
+        <Button
+          type="primary"
+          onClick={() => actions.sortVehicleList("created_at", "descending")}
+        >
+          Sort by listing date (newest to oldest)
+        </Button>
         <Table
           dataSource={state.list}
           columns={columns}
