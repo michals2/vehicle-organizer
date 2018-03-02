@@ -4,7 +4,11 @@ const vehicleList = (state = [], action) => {
       return [...state, action.vehicle];
 
     case "ADD_VEHICLES":
-      return [...state, ...action.vehicleList];
+      const vehicleListWithKeys = action.vehicleList.map((c, i) => ({
+        ...c,
+        key: i
+      }));
+      return [...state, ...vehicleListWithKeys];
 
     default:
       return state;
