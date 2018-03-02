@@ -46,4 +46,5 @@ describe("list of vehicles", () => {
     const wrapper = mount(<VehicleList {...mockProps} />);
   });
 
+  it("should not contain duplicates of the same car");
 });
