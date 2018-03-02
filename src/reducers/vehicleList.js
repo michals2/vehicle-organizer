@@ -4,11 +4,20 @@ const vehicleList = (state = [], action) => {
       return [...state, action.vehicle];
 
     case "ADD_VEHICLES":
-      const vehicleListWithKeys = action.vehicleList.map((c, i) => ({
-        ...c,
-        key: i
-      }));
-      return [...state, ...vehicleListWithKeys];
+      const vehicles = [
+        ...action.vehicleList.reduce((a, c) => {
+          a.add(JSON.stringify(c));
+          return a;
+        }, new Set())
+      ].map((c, i) => {
+        const obj = JSON.parse(c);
+        return {
+          ...obj,
+          key: i,
+          created_at: new Date(obj.created_at)
+        };
+      });
+      return [...state, ...vehicles];
 
     case "SORT_VEHICLE_LIST":
       const { field, order } = action;
