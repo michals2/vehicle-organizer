@@ -7,10 +7,10 @@ import "./VehicleList.css";
 class VehicleList extends Component {
   constructor(props) {
     super(props);
+    // console.log({ props });
   }
 
   componentDidMount() {
-    // console.log(this.props);
     const { dispatch, fetchVehicleListAndUpdateState } = this.props;
     dispatch(fetchVehicleListAndUpdateState());
   }
@@ -27,19 +27,5 @@ class VehicleList extends Component {
     );
   }
 }
-
-// const VehicleList = ({ list, onComponentMount }) => {
-//   // console.log(onComponentMount);
-//   onComponentMount();
-//   return (
-//     <div>
-//       {list.map((v, i) =>
-//         <div key={i}>
-//           {v.make}
-//         </div>
-//       )}
-//     </div>
-//   );
-// };
 
 export default VehicleList;
