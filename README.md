@@ -1,16 +1,27 @@
-# App Highlights
+### Quickstart
+#### Run app
+```bash
+yarn install
+yarn start
+```
+#### Run tests
+```bash
+yarn test
+```
+
+### App Highlights
 * React view layer w/ Ant Design components
 * Redux/Redux-Thunk model and controller
 * Jest/Enzyme testing
 
-# Component Structure
+### Component Structure
 * App
   * VehicleListContainer
     * VehicleList
   * SearchbarContainer
     * Searchbar
 
-# Objectives 
+### Objectives 
 - [x] Use https://gist.githubusercontent.com/creatifyme/2a334c00a117097bfdb47f031edf292c/raw/efb52ecf1cf92e2261f504ec7639c68b5ff390bd/cars.json
 - [x] Show list of each vehicle's year, make, model, and mileage
 - [x] Sorting functionality 
@@ -30,3 +41,7 @@
 - [ ] Basic styling
 - [ ] Responsive from mobile to desktop
 - [ ] Write a few unit tests
+
+### Notes
+* The app removes duplicate entries of vehicles (vehicles that have all of the same information)
+* The app sacrifices a bit of computation time when the data loads in order to create a mapping of search terms to vehicles in order to improve performance on subsequent filtering (when values are entered in the search field)
