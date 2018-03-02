@@ -18,8 +18,8 @@ yarn test
 * App
   * VehicleListContainer
     * VehicleList
-  * SearchbarContainer
-    * Searchbar
+  * ControlPanelContainer
+    * ControlPanel
 
 ### Objectives 
 - [x] Use https://gist.githubusercontent.com/creatifyme/2a334c00a117097bfdb47f031edf292c/raw/efb52ecf1cf92e2261f504ec7639c68b5ff390bd/cars.json
@@ -45,3 +45,6 @@ yarn test
 ### Notes
 * The app removes duplicate entries of vehicles (vehicles that have all of the same information)
 * The app sacrifices a bit of computation time when the data loads in order to create a mapping of search terms to vehicles in order to improve performance on subsequent filtering (when values are entered in the search field)
+* The search functionality doesn't work on partial strings (this was a performance optimization decision)
+* Some vehicles may be duplicates (very similar information with only slight differences) which I've chosen to leave in. For example, there's a 2014 Honda Civic that appears twice in the list with the only difference being they were created exactly 2 months apart (down to the second).
+* Time zones are all converted to local time (using Moment.js)
