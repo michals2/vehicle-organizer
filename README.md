@@ -28,10 +28,10 @@ yarn test
   - [x] oldest to newest vehichle year
   - [x] highest to lowest mileage
   - [x] newest to oldest listing date
-- [ ] Search functionality (any combination of below)
-  - [ ] year
-  - [ ] make
-  - [ ] model
+- [x] Search functionality (any combination of below)
+  - [x] year
+  - [x] make
+  - [x] model
 - [ ] Detail page (on clicking vehicle)
   - [ ] Year
   - [ ] Make
