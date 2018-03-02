@@ -1,20 +1,23 @@
 // library imports
 import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
 
 // action imports
-import { fetchVehicleListAndUpdateState } from "../actions";
+import { fetchVehicleListAndUpdateState, sortVehicleList } from "../actions";
 
 // presentational component imports
 import VehicleList from "../components/VehicleList/VehicleList";
 
 const mapStateToProps = (state, ownProps) => {
-  return { list: state.vehicleList };
+  return { state: { list: state.vehicleList } };
 };
 
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
-    dispatch,
-    fetchVehicleListAndUpdateState
+    actions: bindActionCreators(
+      { fetchVehicleListAndUpdateState, sortVehicleList },
+      dispatch
+    )
   };
 };
 

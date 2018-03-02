@@ -28,21 +28,32 @@ const columns = [
 
 class VehicleList extends Component {
   componentDidMount() {
-    const { dispatch, fetchVehicleListAndUpdateState } = this.props;
-    dispatch(fetchVehicleListAndUpdateState());
+    const { fetchVehicleListAndUpdateState } = this.props.actions;
+    fetchVehicleListAndUpdateState();
   }
 
   render() {
-    const { list } = this.props;
+    const { state, actions } = this.props;
+    // console.log(this.props)
     return (
       <div>
-        <Button type="primary">Button</Button>
-        {/* {this.props.list.map((v, i) =>
-          <div key={i}>
-            {v.make}
-          </div>
-        )} */}
-        <Table dataSource={list} columns={columns} />
+        <Button
+          type="primary"
+          onClick={() => actions.sortVehicleList("year", "ascending")}
+        >
+          Sort by vehicle year (oldest to newest)
+        </Button>
+        <Button type="primary">Sort by mileage (highest to lowest)</Button>
+        <Button type="primary">Sort by listing date (newest to oldest)</Button>
+        <Table
+          dataSource={state.list}
+          columns={columns}
+          onRow={record => ({
+            onClick: () => {
+              console.log(record);
+            }
+          })}
+        />
       </div>
     );
   }

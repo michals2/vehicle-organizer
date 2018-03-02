@@ -10,6 +10,13 @@ const vehicleList = (state = [], action) => {
       }));
       return [...state, ...vehicleListWithKeys];
 
+    case "SORT_VEHICLE_LIST":
+      const { field, order } = action;
+      return [...state].sort((a, b) => {
+        if (order === "descending") return b[field] - a[field];
+        return a[field] - b[field];
+      });
+
     default:
       return state;
   }
