@@ -33,3 +33,10 @@ export const sortVehicleList = (field, order) => {
     order
   };
 };
+
+export const filterListByString = string => {
+  return {
+    type: "FILTER_LIST_BY_STRING",
+    string
+  };
+};

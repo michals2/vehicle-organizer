@@ -9,15 +9,12 @@ import { fetchVehicleListAndUpdateState, sortVehicleList } from "../actions";
 import VehicleList from "../components/VehicleList/VehicleList";
 
 const mapStateToProps = (state, ownProps) => {
-  return { state: { list: state.vehicleList.vehicleList } };
+  return { state: { list: state.vehicleOrganizer.displayedVehicleList } };
 };
 
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
-    actions: bindActionCreators(
-      { fetchVehicleListAndUpdateState, sortVehicleList },
-      dispatch
-    )
+    actions: bindActionCreators({ fetchVehicleListAndUpdateState }, dispatch)
   };
 };
 

@@ -1,8 +1,8 @@
 import { combineReducers } from "redux";
-import vehicleList from "./vehicleList";
+import vehicleOrganizer from "./vehicleOrganizer";
 
 const vehicleApp = combineReducers({
-  vehicleList
+  vehicleOrganizer
 });
 
 export default vehicleApp;

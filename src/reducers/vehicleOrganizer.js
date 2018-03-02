@@ -1,5 +1,10 @@
-const vehicleList = (
-  state = { vehicleList: {}, searchTermMap: {} },
+const vehicleOrganizer = (
+  state = {
+    vehicleList: {},
+    searchTermMap: {},
+    searchString: "",
+    displayedVehicleList: []
+  },
   action
 ) => {
   switch (action.type) {
@@ -32,18 +37,29 @@ const vehicleList = (
         return a;
       }, {});
 
-      return { vehicleList, searchTermMap };
+      const displayedVehicleList = Object.values(vehicleList);
+
+      return { ...state, vehicleList, searchTermMap, displayedVehicleList };
 
     case "SORT_VEHICLE_LIST":
       const { field, order } = action;
-      return [...state].sort((a, b) => {
-        if (order === "descending") return b[field] - a[field];
-        return a[field] - b[field];
-      });
+      const newDisplayedVehicleList = state.displayedVehicleList.sort(
+        (a, b) => {
+          if (order === "descending") return b[field] - a[field];
+          return a[field] - b[field];
+        }
+      );
+      return { ...state, displayedVehicleList: newDisplayedVehicleList };
+
+    case "FILTER_LIST_BY_STRING":
+      const { string } = action;
+      const searchTerms = string.split(" ");
+      console.log(searchTerms);
+      return state;
 
     default:
       return state;
   }
 };
 
-export default vehicleList;
+export default vehicleOrganizer;

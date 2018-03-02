@@ -2,12 +2,17 @@
 import React from "react";
 
 // component imports
-import Button from "antd/lib/button";
+import { Input, Button } from "antd";
 
 const ControlPanel = ({ actions }) => {
-  const { sortVehicleList } = actions;
+  const { sortVehicleList, filterListByString } = actions;
+  console.log(actions)
   return (
     <div>
+      <Input
+        placeholder="Search by year, make or model"
+        onPressEnter={e => filterListByString(e.target.value)}
+      />
       <Button
         type="primary"
         onClick={() => sortVehicleList("year", "ascending")}

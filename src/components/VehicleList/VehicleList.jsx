@@ -2,7 +2,7 @@
 import React, { Component } from "react";
 
 // component imports
-import Table from "antd/lib/table";
+import { Table } from "antd";
 
 const columns = [
   {
@@ -38,7 +38,7 @@ class VehicleList extends Component {
     return (
       <div>
         <Table
-          dataSource={Object.values(state.list)}
+          dataSource={state.list}
           columns={columns}
           onRow={record => ({
             onClick: () => {
