@@ -27,7 +27,6 @@ export function fetchVehicleListAndUpdateState() {
 }
 
 export const sortVehicleList = (field, order) => {
-  console.log("1")
   return {
     type: "SORT_VEHICLE_LIST",
     field,

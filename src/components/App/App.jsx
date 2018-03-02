@@ -6,7 +6,12 @@ import "./App.css";
 
 // component imports
 import VehicleListContainer from "../../containers/VehicleListContainer";
+import ControlPanelContainer from "../../containers/ControlPanelContainer";
 
-const App = () => <VehicleListContainer />;
+const App = () =>
+  <div>
+    <ControlPanelContainer />
+    <VehicleListContainer />
+  </div>;
 
 export default App;
