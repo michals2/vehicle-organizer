@@ -43,12 +43,12 @@ const vehicleOrganizer = (state = initialState, action) => {
 
     case "SORT_VEHICLE_LIST":
       const { field, order } = action;
-      const newDisplayedVehicleList = state.displayedVehicleList.sort(
-        (a, b) => {
-          if (order === "descending") return b[field] - a[field];
-          return a[field] - b[field];
-        }
-      );
+      const newDisplayedVehicleList = [
+        ...Object.values(state.vehicleList)
+      ].sort((a, b) => {
+        if (order === "descending") return b[field] - a[field];
+        return a[field] - b[field];
+      });
       return { ...state, displayedVehicleList: newDisplayedVehicleList };
 
     case "FILTER_LIST_BY_STRING":
