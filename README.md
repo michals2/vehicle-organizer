@@ -40,7 +40,7 @@ yarn test
   - [x] Image
 - [x] Basic styling
 - [x] Responsive from mobile to desktop
-- [ ] Write a few unit tests
+- [x] Write a few unit tests
 
 ### Notes
 * The app removes duplicate entries of vehicles (vehicles that have all of the same information)
