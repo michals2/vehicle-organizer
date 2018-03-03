@@ -49,6 +49,7 @@ class VehicleList extends Component {
     return (
       <Card className="app-item">
         <Table
+          size="small"
           dataSource={displayedVehicleList}
           columns={columns}
           onRow={record => ({

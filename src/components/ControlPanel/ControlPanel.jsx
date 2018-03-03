@@ -18,35 +18,37 @@ const ControlPanel = ({ actions }) => {
         </Col>
         <Col xs={24} sm={24} md={12} lg={12}>
           <Row>
-            <Col>
-              <span>Sort By: </span>
-            </Col>
-            <Col>
-              <Button
-                size="small"
-                type="primary"
-                onClick={() => sortVehicleList("year", "ascending")}
-                style={{ margin: "5px" }}
-              >
-                Year (oldest to newest)
-              </Button>
-              <Button
-                size="small"
-                type="primary"
-                onClick={() => sortVehicleList("mileage", "descending")}
-                style={{ margin: "5px" }}
-              >
-                Mileage (highest to lowest)
-              </Button>
-              <Button
-                size="small"
-                type="primary"
-                onClick={() => sortVehicleList("created_at", "descending")}
-                style={{ margin: "5px" }}
-              >
-                Listing date (newest to oldest)
-              </Button>
-            </Col>
+            <span>Sort By: </span>
+          </Row>
+          <Row>
+            <Button
+              size="small"
+              type="primary"
+              onClick={() => sortVehicleList("year", "ascending")}
+              style={{ margin: "5px" }}
+            >
+              Year (oldest to newest)
+            </Button>
+          </Row>
+          <Row>
+            <Button
+              size="small"
+              type="primary"
+              onClick={() => sortVehicleList("mileage", "descending")}
+              style={{ margin: "5px" }}
+            >
+              Mileage (highest to lowest)
+            </Button>
+          </Row>
+          <Row>
+            <Button
+              size="small"
+              type="primary"
+              onClick={() => sortVehicleList("created_at", "descending")}
+              style={{ margin: "5px" }}
+            >
+              Listing date (newest to oldest)
+            </Button>
           </Row>
         </Col>
       </Row>
