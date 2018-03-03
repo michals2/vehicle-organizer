@@ -1,13 +1,8 @@
-export const addVehicle = vehicle => {
-  return {
-    type: "ADD_VEHICLE",
-    vehicle
-  };
-};
+import * as types from "./actionTypes";
 
 export const addVehicles = vehicleList => {
   return {
-    type: "ADD_VEHICLES",
+    type: types.ADD_VEHICLES,
     vehicleList
   };
 };
@@ -28,7 +23,7 @@ export function fetchVehicleListAndUpdateState() {
 
 export const sortVehicleList = (field, order) => {
   return {
-    type: "SORT_VEHICLE_LIST",
+    type: types.SORT_VEHICLE_LIST,
     field,
     order
   };
@@ -36,26 +31,26 @@ export const sortVehicleList = (field, order) => {
 
 export const filterListByString = string => {
   return {
-    type: "FILTER_LIST_BY_STRING",
+    type: types.FILTER_LIST_BY_STRING,
     string
   };
 };
 
 export const setActiveVehicle = details => {
   return {
-    type: "SET_ACTIVE_VEHICLE",
+    type: types.SET_ACTIVE_VEHICLE,
     details
   };
 };
 
 export const showModal = () => {
   return {
-    type: "SHOW_MODAL"
+    type: types.SHOW_MODAL
   };
 };
 
 export const hideModal = () => {
   return {
-    type: "HIDE_MODAL"
+    type: types.HIDE_MODAL
   };
 };

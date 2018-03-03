@@ -1,15 +1,7 @@
 import moment from "moment";
+import initialState from "../model";
 
-const vehicleOrganizer = (
-  state = {
-    vehicleList: {},
-    searchTermMap: {},
-    displayedVehicleList: [],
-    modalDisplayed: false,
-    activeVehicleDetails: {}
-  },
-  action
-) => {
+const vehicleOrganizer = (state = initialState, action) => {
   switch (action.type) {
     case "ADD_VEHICLES":
       const vehicleList = [
@@ -93,7 +85,7 @@ const vehicleOrganizer = (
     case "SET_ACTIVE_VEHICLE":
       return {
         ...state,
-        activeVehicleDetails: action.details,
+        activeVehicleDetails: action.details
       };
 
     default:
