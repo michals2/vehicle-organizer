@@ -40,6 +40,7 @@ class VehicleList extends Component {
       modalDisplayed,
       activeVehicleDetails
     } = localState;
+
     const { hideModal, showModal, setActiveVehicle } = actions;
     const {
       year,

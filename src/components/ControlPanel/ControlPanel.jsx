@@ -3,7 +3,6 @@ import React from "react";
 
 // component imports
 import { Input, Button, Card, Row, Col } from "antd";
-// const ButtonGroup = Button.Group;
 
 const ControlPanel = ({ actions }) => {
   const { sortVehicleList, filterListByString } = actions;
