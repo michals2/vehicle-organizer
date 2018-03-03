@@ -23,6 +23,7 @@ const vehicleOrganizer = (
         const obj = JSON.parse(c);
         a[i] = {
           key: i,
+          formattedMileage: obj.mileage.toLocaleString(),
           ...obj,
           created_at: new Date(obj.created_at),
           searchTerms: [

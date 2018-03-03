@@ -22,8 +22,8 @@ const columns = [
   },
   {
     title: "Mileage",
-    dataIndex: "mileage",
-    key: "mileage"
+    dataIndex: "formattedMileage",
+    key: "formattedMileage"
   }
 ];
 
@@ -41,10 +41,13 @@ class VehicleList extends Component {
       activeVehicleDetails
     } = localState;
     const { hideModal, showModal, setActiveVehicle } = actions;
-    const { year, make, model, mileage, image_url } = activeVehicleDetails;
-    let formattedMileage;
-
-    if (mileage) formattedMileage = mileage.toLocaleString();
+    const {
+      year,
+      make,
+      model,
+      formattedMileage,
+      image_url
+    } = activeVehicleDetails;
 
     return (
       <Card className="app-item">
