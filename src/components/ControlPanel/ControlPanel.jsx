@@ -6,7 +6,6 @@ import { Input, Button } from "antd";
 
 const ControlPanel = ({ actions }) => {
   const { sortVehicleList, filterListByString } = actions;
-  console.log(actions)
   return (
     <div>
       <Input

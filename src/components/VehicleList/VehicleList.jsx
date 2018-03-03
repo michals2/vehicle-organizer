@@ -2,7 +2,7 @@
 import React, { Component } from "react";
 
 // component imports
-import { Table } from "antd";
+import { Table, Modal, Button } from "antd";
 
 const columns = [
   {
@@ -34,18 +34,43 @@ class VehicleList extends Component {
   }
 
   render() {
-    const { state, actions } = this.props;
+    const { localState, actions } = this.props;
+    const {
+      displayedVehicleList,
+      modalDisplayed,
+      activeVehicleDetails
+    } = localState;
+    const { hideModal, showModal, setActiveVehicle } = actions;
+    const { year, make, model, mileage, image_url } = activeVehicleDetails;
+
     return (
       <div>
         <Table
-          dataSource={state.list}
+          dataSource={displayedVehicleList}
           columns={columns}
           onRow={record => ({
             onClick: () => {
-              console.log(record);
+              setActiveVehicle(record);
+              showModal();
             }
           })}
         />
+        <Modal
+          title={`${year} ${make} ${model} (${mileage} miles)`}
+          visible={modalDisplayed}
+          onCancel={hideModal}
+          footer={[
+            <Button key="submit" type="primary" onClick={hideModal}>
+              OK
+            </Button>
+          ]}
+        >
+          <img
+            alt="vehicle"
+            src={image_url}
+            style={{ maxWidth: "100%", maxHeight: "100%" }}
+          />
+        </Modal>
       </div>
     );
   }

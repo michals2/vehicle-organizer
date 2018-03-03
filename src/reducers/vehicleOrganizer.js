@@ -17,7 +17,7 @@ const vehicleOrganizer = (
         ...action.vehicleList.reduce((a, c) => {
           const date = moment(c.created_at).local().toDate();
           const obj = { ...c, created_at: date };
-          a.add(JSON.stringify(c));
+          a.add(JSON.stringify(obj));
           return a;
         }, new Set())
       ].reduce((a, c, i) => {
@@ -84,6 +84,18 @@ const vehicleOrganizer = (
       console.log({ vehiclesWithAllSearchTerms });
 
       return { ...state, displayedVehicleList: vehiclesWithAllSearchTerms };
+
+    case "SHOW_MODAL":
+      return { ...state, modalDisplayed: true };
+
+    case "HIDE_MODAL":
+      return { ...state, modalDisplayed: false };
+
+    case "SET_ACTIVE_VEHICLE":
+      return {
+        ...state,
+        activeVehicleDetails: action.details,
+      };
 
     default:
       return state;
