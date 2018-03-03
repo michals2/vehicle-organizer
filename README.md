@@ -32,14 +32,14 @@ yarn test
   - [x] year
   - [x] make
   - [x] model
-- [ ] Detail page (on clicking vehicle)
-  - [ ] Year
-  - [ ] Make
-  - [ ] Model
-  - [ ] Mileage
-  - [ ] Image
-- [ ] Basic styling
-- [ ] Responsive from mobile to desktop
+- [x] Detail page (on clicking vehicle)
+  - [x] Year
+  - [x] Make
+  - [x] Model
+  - [x] Mileage
+  - [x] Image
+- [x] Basic styling
+- [x] Responsive from mobile to desktop
 - [ ] Write a few unit tests
 
 ### Notes
