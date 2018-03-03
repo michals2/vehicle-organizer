@@ -4,7 +4,6 @@ const vehicleOrganizer = (
   state = {
     vehicleList: {},
     searchTermMap: {},
-    searchString: "",
     displayedVehicleList: [],
     modalDisplayed: false,
     activeVehicleDetails: {}
@@ -27,7 +26,7 @@ const vehicleOrganizer = (
           ...obj,
           created_at: new Date(obj.created_at),
           searchTerms: [
-            obj.year,
+            `${obj.year}`,
             obj.make.toLowerCase(),
             obj.model.toLowerCase()
           ]
@@ -69,6 +68,7 @@ const vehicleOrganizer = (
         };
 
       const vehiclesWithSearchTerms = string
+        .trim()
         .split(" ")
         .map(t => state.searchTermMap[t.toLowerCase()]);
 
@@ -80,8 +80,6 @@ const vehicleOrganizer = (
           return [...a].filter(x => c.has(x));
         }, vehiclesWithSearchTerms[0])
       ].map(v => state.vehicleList[v]);
-
-      console.log({ vehiclesWithAllSearchTerms });
 
       return { ...state, displayedVehicleList: vehiclesWithAllSearchTerms };
 

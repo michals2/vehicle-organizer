@@ -9,7 +9,7 @@ import VehicleListContainer from "../../containers/VehicleListContainer";
 import ControlPanelContainer from "../../containers/ControlPanelContainer";
 
 const App = () =>
-  <div>
+  <div className="app">
     <ControlPanelContainer />
     <VehicleListContainer />
   </div>;

@@ -1,1 +1,9 @@
 @import '~antd/dist/antd.css';
+
+.app {
+  margin: 20px;
+}
+
+.app-item {
+  margin: 20px;
+}

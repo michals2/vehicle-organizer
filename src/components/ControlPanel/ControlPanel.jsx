@@ -2,12 +2,12 @@
 import React from "react";
 
 // component imports
-import { Input, Button } from "antd";
+import { Input, Button, Card } from "antd";
 
 const ControlPanel = ({ actions }) => {
   const { sortVehicleList, filterListByString } = actions;
   return (
-    <div>
+    <Card className="app-item">
       <Input
         placeholder="Search by year, make or model"
         onPressEnter={e => filterListByString(e.target.value)}
@@ -30,7 +30,7 @@ const ControlPanel = ({ actions }) => {
       >
         Sort by listing date (newest to oldest)
       </Button>
-    </div>
+    </Card>
   );
 };
 

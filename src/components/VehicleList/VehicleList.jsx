@@ -2,7 +2,7 @@
 import React, { Component } from "react";
 
 // component imports
-import { Table, Modal, Button } from "antd";
+import { Table, Modal, Button, Card } from "antd";
 
 const columns = [
   {
@@ -42,9 +42,12 @@ class VehicleList extends Component {
     } = localState;
     const { hideModal, showModal, setActiveVehicle } = actions;
     const { year, make, model, mileage, image_url } = activeVehicleDetails;
+    let formattedMileage;
+
+    if (mileage) formattedMileage = mileage.toLocaleString();
 
     return (
-      <div>
+      <Card className="app-item">
         <Table
           dataSource={displayedVehicleList}
           columns={columns}
@@ -56,7 +59,7 @@ class VehicleList extends Component {
           })}
         />
         <Modal
-          title={`${year} ${make} ${model} (${mileage} miles)`}
+          title={`${year} ${make} ${model} (${formattedMileage} miles)`}
           visible={modalDisplayed}
           onCancel={hideModal}
           footer={[
@@ -71,7 +74,7 @@ class VehicleList extends Component {
             style={{ maxWidth: "100%", maxHeight: "100%" }}
           />
         </Modal>
-      </div>
+      </Card>
     );
   }
 }
